@@ -1,0 +1,14 @@
+name: umap_implementation_env
+channels:
+  - defaults
+dependencies:
+  - python==3.12.2
+  - scikit-learn
+  - seaborn
+  - matplotlib
+  - make
+  - conda-forge::numpy
+  - conda-forge::mlxtend
+  - conda-forge::ipykernel
+  - conda-forge::scipy
+  - ipywidgets
