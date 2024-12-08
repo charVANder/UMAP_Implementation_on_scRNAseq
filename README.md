@@ -64,15 +64,14 @@ Before starting on the implementation, I tried to organize what I knew about UMA
     * Additional functions to visualize results were created and can be viewed in `separate_functions/visualization.py`.
 
 ## <u>Results</u>
-tbd
-
 ### UMAP Projections for Female/Male Datasets:
 <p float="left", align="center">
   <img src="figs/fem_umap_projection.png" width="400"/>
   <img src="figs/male_umap_projection.png" width="396"/> 
 </p>
 
-### Cross-Entropy Optimization with Gradient Descent For the Projections:
+### Cross-Entropy Optimization with Gradient Descent (100 iterations):
+By tracking the cross-entropy loss for every 10 iteration, we can see that the algorithm was working and loss was being minimized for the 100 iterations. That said, if runtime were not an issue, then running 500+ iterations would have been better, allowing the loss to taper off at the end and break the loop once convergence was actually reached.
 <p float="left", align="center">
   <img src="figs/fem_optimization.png" width="400"/>
   <img src="figs/male_optimization.png" width="400"/> 
