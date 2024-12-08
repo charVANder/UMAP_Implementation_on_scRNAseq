@@ -1,5 +1,5 @@
 # UMAP_Implementation
-Simplified UMAP implementation done from scratch. Mini project for BINF6250 (Algorithmic Foundations in Bioinformatics) course at the Roux Institute at Northeastern University.
+Simplified UMAP implementation done from scratch. Mini project for BINF6250 (Algorithmic Foundations in Bioinformatics) course at the Roux Institute at Northeastern University. You can view the entire run in the `implementation.ipynb` notebook.
 
 ## <u>Reflection Notes</u>
 I would first like to emphasize that this project was not done to create an efficient or modularized algorithm ready for widespread use. Rather, it was more of a proof of concept, and a way to better learn about the intricacies of UMAP by creating a python algorithm from scratch without sklearn or scipy. I personally find single-cell RNA sequencing data very interesting, and UMAP is one of the best ways to capture local and global structures in those datasets. It is also fairly new and used widely in industry today.
