@@ -51,7 +51,7 @@ Before starting on the implementation, I tried to organize what I knew about UMA
 * In UMAP, the final embedding is optimized by minimizing the cross-entropy loss between the high-dimensional and low-dimensional similarities. It is minimizing the cross-entropy loss between high-dimensional fuzzy simplicial set and low-dimensional set, usually with stochastic gradient descent or other gradient based methods. UMAP keeps iterating these steps until convergence is reached.
 * Gradient descent optimizes the low-dimensional embedding by adjusting the points to minimize the difference between high-dimensional and low-dimensional similarities. The chain rule is used to compute the gradient of the loss function with respect to the embedding, capturing how small changes in the embedding affect the pairwise similarities, and guiding the updates as such.
 * See `optimization.py, run_UMAP.py, and main.py` in the `separate_functions` directory.
-* To avoid rerunning the implmentation (which takes an unreasonably long time on the GEO datasets), the final embedding files were saved as `.npy`.
+* To avoid rerunning the implementation (which takes an unreasonably long time on the GEO datasets), the final embeddings were saved as `.npy` files.
 
 <p align="center">
 <img width="475" alt="cross_entropy" src="figs/cross_entropy.png">
@@ -69,6 +69,7 @@ Before starting on the implementation, I tried to organize what I knew about UMA
   <img src="figs/fem_umap_projection.png" width="400"/>
   <img src="figs/male_umap_projection.png" width="396"/> 
 </p>
+At this point, the reduced data is ready for further adjustments, clustering (KMeans, DBSCAN, etc.) and analysis.
 
 ### Cross-Entropy Optimization with Gradient Descent (100 iterations):
 By tracking the cross-entropy loss for every 10 iteration, we can see that the algorithm was working and loss was being minimized for the 100 iterations. That said, if runtime were not an issue, then running 500+ iterations would have been better, allowing the loss to taper off at the end and break the loop once convergence was actually reached.
