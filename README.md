@@ -16,7 +16,7 @@ The biggest issue with this implementation was the runtime and computational eff
 It should be noted that for ease of use, I chose to let the implementation run separately in the background, and then saved the final embeddings as separate files so that I could use them for visualization without having to rerun everything. Despite long runtimes and inefficiency, this entire process really taught me a lot about the in-depth workings and mathematics behind UMAP. The next time I use this algorithm I feel that I'll be more confident about tuning hyperparameters to best suit the needs of my dataset!
 
 ## <u>Data Acquisition</u>
-The data that supports any possible findings in this project have been deposited in GEO with the accession code <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE273980" target="_blank">GSE273980</a> (recently made public December 1st, 2024). These are single cell gene expression profiles of cells isolated from human aortic valve leaflets. According to the studies done in the Aguado lab at University of California San Diego, aortic valve cell heterogeneity increases during AVS (aortic valve stenosis) progression. The researches are using single cell RNA sequencing to characterize valve cell phenotypes in AVS patients. Whole cells were isolated from aortic valve leaflets of age and disease-matched AVS patients--one male and one female.
+The data that supports any possible findings in this project have been deposited in GEO with the accession code [GSE273980](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE273980) (recently made public December 1st, 2024). These are single cell gene expression profiles of cells isolated from human aortic valve leaflets. According to the studies done in the Aguado lab at University of California San Diego, aortic valve cell heterogeneity increases during AVS (aortic valve stenosis) progression. The researches are using single cell RNA sequencing to characterize valve cell phenotypes in AVS patients. Whole cells were isolated from aortic valve leaflets of age and disease-matched AVS patients--one male and one female.
 * GSM8441017_female_AVS_HH6_barcodes.tsv.gz
 * GSM8441017_female_AVS_HH6_features.tsv.gz
 * GSM8441017_female_AVS_HH6_matrix.mtx.gz
@@ -26,7 +26,7 @@ The data that supports any possible findings in this project have been deposited
 
 In this project, the data files shown above were refactored to create two gene expression DataFrames (barcodes/cells as rows and columns as genes)--one for the female patient, and one for the male patient. The intention was to implement my scratch UMAP algorithm on both sets and compare the final embeddings.
 <p align="center">
-<img width="600" alt="fem_df" src="figs/fem_df.png">
+<img width="630" alt="fem_df" src="figs/fem_df.png">
 </p> 
 
 ## <u>The Algorithm</u>
