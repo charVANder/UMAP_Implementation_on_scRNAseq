@@ -1,5 +1,5 @@
-# UMAP_Implementation
-This is a simplified UMAP implementation done from scratch. A mini project assignment for BINF6250 (Algorithmic Foundations in Bioinformatics) course at the Roux Institute at Northeastern University. You can view the entire run in the `implementation.ipynb` notebook.
+# UMAP_Implementation on Single-Cell RNA Sequencing Data
+This is a simplified UMAP implementation programmed from scratch. A project assignment for BINF6250 (Algorithmic Foundations in Bioinformatics) course at the Roux Institute at Northeastern University. You can view the entire run in the `implementation.ipynb` notebook.
 
 ## Table Of Contents
 * [Summary](#summary)
