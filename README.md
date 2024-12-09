@@ -45,11 +45,11 @@ Before starting on the implementation, I tried to organize what I knew about UMA
 * Converting the high-dimensional similarity matrix into a probability distribution. A weighted graph where the weights represent the probability of edges between the points.
 * See `fuzzy_simplicial.py` in the `separate_functions` directory.
 
-### *3. Randomly initialize the embedding in a lower-dimensional space (usually 2D):*
+### *3. Randomly Initializing the Embedding in a Lower-Dimensional Space (usually 2D):*
 * This function would serve as the starting point for the optimization.
 * See `initialize_embedding` in the `separate_functions` directory.
 
-### *4. Create the Low-Dimensional Similarity Matrix/Probabilities:*
+### *4. Creating the Low-Dimensional Similarity Matrix/Probabilities:*
 * In UMAP, low-dimensional similarities are calculated using a t-distribution, which helps to maintain local structure.
 * See `low_dim_similarity_matrix.py` in the `separate_functions` directory.
 
@@ -70,8 +70,8 @@ Before starting on the implementation, I tried to organize what I knew about UMA
 <img width="375" alt="chain_rule" src="figs/chain_rule.png">
 </p> 
 
-6. Visualization
-    * Additional functions to visualize results were created and can be viewed in `separate_functions/visualization.py`.
+### *6. Visualization:*
+* Additional functions to visualize results were created and can be viewed in the `separate_functions/visualization.py`.
 
 ## Results
 ### *UMAP Projections for Female/Male Datasets:*
