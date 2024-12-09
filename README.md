@@ -32,7 +32,7 @@ In this project, the data files shown above were refactored to create two gene e
 ## The Algorithm
 Before starting on the implementation, I tried to organize what I knew about UMAP into separate steps. I would then focus on creating functions for each part and then combine them in the end.
 
-### *1. Creating a High-Dimensional (original data) Similarity Matrix*
+### *1. Creating a High-Dimensional (original data) Similarity Matrix:*
 * This would be done by converting high-dimensional Euclidean distances between data points (the cells) into similarities using a Gaussian kernel.
 * In the `umap-learn` library, the default value for `sigma` (basically the "spread" of the Gaussian kernel) is tuned based on the data. It uses the median distance to the k-nearest neighbors (default `n_neighbors=15`) as the estimate for `sigma`. My original code was setting `sigma` to the median of the pairwise distances, meaning that I would be looking through every single point rather than just the nearest neighbors. Unfortunately, this could result in outliers influencing the value of sigma, potentially making the kernel scale too large or too small for certain points in denser areas. Because of this, I made a last minute switch to mimic `umap-learn` with sklearn's `NearestNeighbors`.
 * See `high_dim_similarity_matrix.py` in the `separate_functions` directory.
@@ -41,15 +41,15 @@ Before starting on the implementation, I tried to organize what I knew about UMA
 <img width="325" alt="high_dim_similarity" src="figs/high_dim_sim.png">
 </p> 
 
-### *2. Creating the Fuzzy-Simplicial Set*
+### *2. Creating the Fuzzy-Simplicial Set:*
 * Converting the high-dimensional similarity matrix into a probability distribution. A weighted graph where the weights represent the probability of edges between the points.
 * See `fuzzy_simplicial.py` in the `separate_functions` directory.
 
-### *3. Randomly initialize the embedding in a lower-dimensional space (usually 2D)*
+### *3. Randomly initialize the embedding in a lower-dimensional space (usually 2D):*
 * This function would serve as the starting point for the optimization.
 * See `initialize_embedding` in the `separate_functions` directory.
 
-### *4. Create the Low-Dimensional Similarity Matrix/Probabilities*
+### *4. Create the Low-Dimensional Similarity Matrix/Probabilities:*
 * In UMAP, low-dimensional similarities are calculated using a t-distribution, which helps to maintain local structure.
 * See `low_dim_similarity_matrix.py` in the `separate_functions` directory.
 
@@ -57,7 +57,7 @@ Before starting on the implementation, I tried to organize what I knew about UMA
 <img width="200" alt="fuzzy_simplicial" src="figs/fuzzy_simplicial.png">
 </p> 
 
-### *5. Optimization and Refinement*
+### *5. Optimization and Refinement:*
 * In UMAP, the final embedding is optimized by minimizing the cross-entropy loss between the high-dimensional and low-dimensional similarities. It is minimizing the cross-entropy loss between high-dimensional fuzzy simplicial set and low-dimensional set, usually with stochastic gradient descent or other gradient based methods. UMAP keeps iterating these steps until convergence is reached.
 * Gradient descent optimizes the low-dimensional embedding by adjusting the points to minimize the difference between high-dimensional and low-dimensional similarities. The chain rule is used to compute the gradient of the loss function with respect to the embedding, capturing how small changes in the embedding affect the pairwise similarities, and guiding the updates as such.
 * See `optimization.py, run_UMAP.py, and main.py` in the `separate_functions` directory.
