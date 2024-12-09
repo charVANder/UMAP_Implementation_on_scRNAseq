@@ -1,21 +1,26 @@
 import matplotlib.pyplot as plt
 
-def plot_umap(embedding, labels=None, title="UMAP Projection"):
+import matplotlib.pyplot as plt
+
+def plot_umap(embedding, labels=None, title="UMAP Projection", cmap='viridis'):
     ''' Creates visualization of 2D UMAP embedding with a scatter plot.
 
     Parameters:
         embedding (2D array): final low-dimensional embedding of the data
         labels: cluster labels for each point, used to add color. Default is None
         title (str): title of the plot. The default is "UMAP Projection"
+        cmap: matplotlib colormap option. Default is viridis
 
     Returns:
         None: displays the UMAP projection as a scatter plot.
     '''
     plt.figure(figsize=(8, 6))
     
-    # Option to show labels if provided. For example, running KMeans or DBSCAN on the UMAP embeddings to pass cluster labels as labels.
+    # Option to show labels if provided.
+    # For example, running KMeans or DBSCAN on the UMAP embeddings to pass cluster labels as labels.
+    # UMAP for dimension reduction and then clustering is often done in industry.
     if labels is not None:
-        plt.scatter(embedding[:, 0], embedding[:, 1], c=labels, cmap='viridis', s=5)
+        plt.scatter(embedding[:, 0], embedding[:, 1], c=labels, cmap=cmap, s=5)
         plt.colorbar()
     else:
         plt.scatter(embedding[:, 0], embedding[:, 1], color='tab:blue', s=5)
@@ -23,7 +28,7 @@ def plot_umap(embedding, labels=None, title="UMAP Projection"):
     plt.xlabel('UMAP 1')
     plt.ylabel('UMAP 2')
     #plt.axis('equal')
-    plt.tight_layout
+    #plt.tight_layout()
     plt.show()
 
 
