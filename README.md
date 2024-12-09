@@ -26,7 +26,7 @@ The data that supports any possible findings in this project have been deposited
 
 In this project, the data files shown above were refactored to create two gene expression DataFrames (barcodes/cells as rows and columns as genes)--one for the female patient, and one for the male patient. The intention was to implement my scratch UMAP algorithm on both sets and compare the final embeddings.
 <p align="center">
-<img width="500" alt="fem_df" src="figs/fem_df.png">
+<img width="600" alt="fem_df" src="figs/fem_df.png">
 </p> 
 
 ## <u>The Algorithm</u>
@@ -96,7 +96,7 @@ Normally, I would not go straight to clustering without better optimizing the UM
   <img src="figs/male_dbscan.png" width="400"/> 
 </p>
 <p align="center">
-<img width="250" alt="silhouette" src="figs/silhouettes.png">
+<img width="400" alt="silhouette" src="figs/silhouettes.png">
 </p> 
 The silhouette scores are moderately good, indicating that the clustering is relatively well-defined, although there is still a lot of room for refinement. This was somewhat expected, as the UMAP projection was not fully optimized due to the runtime constraints described earlier. Nevertheless, the scores demonstrate that the UMAP implementation has effectively reduced the 36,000+ features (the genes) down to just 2 UMAP dimensions, preserving enough structure to identify meaningful clusters!
 
