@@ -28,8 +28,8 @@ def main():
     male_sigma = estimate_sigma(male_df.values, n_neighbors=15)
 
     # Creating high-dimension similarity matrices and then fuzzy-simplicial sets
-    fem_similarity_matrix = get_high_dim_similarity_matrix(fem_df.values, n_neighbors=15)
-    male_similarity_matrix = get_high_dim_similarity_matrix(fem_df.values, n_neighbors=15)
+    fem_similarity_matrix = get_high_dim_similarity_matrix(fem_df.values, n_neighbors=15, sigma=fem_sigma)
+    male_similarity_matrix = get_high_dim_similarity_matrix(fem_df.values, n_neighbors=15, sigma=male_sigma)
     fem_fuzzy_simplicial = get_fuzzy_simplicial(fem_similarity_matrix)
     male_fuzzy_simplicial = get_fuzzy_simplicial(male_similarity_matrix)
 

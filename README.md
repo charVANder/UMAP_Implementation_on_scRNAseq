@@ -71,7 +71,7 @@ Before starting on the implementation, I tried to organize what I knew about UMA
 </p> 
 
 ### *6. Visualization:*
-* Additional functions to visualize results were created and can be viewed in the `separate_functions/visualization.py`.
+* Additional functions to visualize results were created and can be viewed in the `separate_functions/visualization.py` file.
 
 ## Results
 ### *UMAP Projections for Female/Male Datasets:*
