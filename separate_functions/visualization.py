@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 
-import matplotlib.pyplot as plt
-
 def plot_umap(embedding, labels=None, title="UMAP Projection", cmap='viridis'):
     ''' Creates visualization of 2D UMAP embedding with a scatter plot.
 
