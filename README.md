@@ -151,8 +151,10 @@ The silhouette scores are moderately good, indicating that the clustering is rel
 ### *AI Usage (chatGPT):*
 * Prompt: *How do I apply gaussian kernel to convert distances to similarities in umap by scratch?*
     * This helped me by providing the general math equation used to make the calculations.
+    * https://stats.stackexchange.com/questions/15798/how-to-calculate-a-gaussian-kernel-effectively-in-numpy
 * Prompt: *Can you give me a mathematical equation that represents cross-entropy loss (also used gradient descent, t-dist kernel, etc)?*
     * This helped provide the math equation images in this README.
+    * https://www.pinecone.io/learn/cross-entropy-loss/
 * Prompt: *Can you help me find the error in my gradient descent function?*
     * I was using the chain rule incorrectly and was able to fix the issue.
 * Prompt: *Why do I keep getting this same error "ValueError the truth value of an array with more than one element is ambiguous. Use a.any() or a.all()"*
