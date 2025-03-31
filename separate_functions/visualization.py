@@ -52,8 +52,8 @@ def plot_optimization(iterations, loss_values, title):
 
 def main():
     # Loading the saved embeddings and etc.
-    final_fem_embedding = np.load('../final_embeddings/fem_embedding.npy')
-    final_male_embedding = np.load('../final_embeddings/male_embedding.npy')
+    final_fem_embedding = np.load('final_embeddings/fem_embedding.npy')
+    final_male_embedding = np.load('final_embeddings/male_embedding.npy')
     fem_dbscan = DBSCAN(eps=0.5, min_samples=12)
     male_dbscan = DBSCAN(eps=0.5, min_samples=12)
     fem_dbscan_labels = fem_dbscan.fit_predict(final_fem_embedding)
