@@ -57,8 +57,8 @@ def main():
     final_male_embedding = run_UMAP(male_fuzzy_simplicial, male_embedding, learning_rate=1.0, n_iterations=100, alpha=1.0, tol=1e-4)
 
     # # OPTIONAL - saving final embeddings as numpy files because running this takes forever and a day
-    # np.save('embeddings/fem_embedding.npy', final_fem_embedding)
-    # np.save('embeddings/male_embedding.npy', final_male_embedding)
+    np.save('embeddings/fem_embedding_saved.npy', final_fem_embedding)
+    np.save('embeddings/male_embedding_saved.npy', final_male_embedding)
 
     # # VISUALIZATION
     # Because running the algorithm took too long, the embeddings have been saved into a file.

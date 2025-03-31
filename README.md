@@ -1,6 +1,25 @@
 # UMAP Implementation on Single-Cell RNA Sequencing Data
 This is a simplified implementation of UMAP (Uniform Manifold Approximation and Projection), programmed from scratch and applied to GEO scRNA-seq data. A project assignment for BINF6250 (Algorithmic Foundations in Bioinformatics) course at the Roux Institute at Northeastern University. You can view the entire run in the `implementation.ipynb` notebook.
 
+## Dependencies and Conda Environment Setup
+To create a conda environment to reproduce results, run the following command in your terminal:
+```
+conda env create -f environment.yml
+```
+Alternatively, just make sure that your environment supports the following:
+<details>
+  <summary>Dependencies:</summary>
+  <ul>
+    <li>Python 3.7+</li>
+    <li>Pandas</li>
+    <li>Numpy</li>
+    <li>Matplotlib</li>
+    <li>Scikit-learn</li>
+    <li>Scipy</li>
+    <li>GNU Make</li>
+  </ul>
+</details>
+
 ## Table Of Contents
 * [Summary](#summary)
 * [Data Acquisition](#data-acquisition)
