@@ -16,6 +16,15 @@ The biggest issue with this implementation was the runtime and computational eff
 It should be noted that for ease of use, I chose to let the implementation run separately in the background, and then saved the final embeddings as separate files so that I could use them for visualization without having to rerun everything. Despite long runtimes and inefficiency, this entire process really taught me a lot about the in-depth workings and mathematics behind UMAP. The next time I use this algorithm I feel that I'll be more confident about tuning hyperparameters to best suit the needs of my dataset!
 
 ## Data Acquisition
+To download the data locally, enter the following command in your terminal:
+```
+make data
+```
+Similarly, to clean out the data, enter the following command in your terminal:
+```
+make clean
+```
+
 The data that supports any possible findings in this project have been deposited in GEO with the accession code [GSE273980](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE273980) (recently made public December 1st, 2024). These are single cell gene expression profiles of cells isolated from human aortic valve leaflets. According to the studies done in the Aguado lab at University of California San Diego, aortic valve cell heterogeneity increases during AVS (aortic valve stenosis) progression. The researches are using single cell RNA sequencing to characterize valve cell phenotypes in AVS patients. Whole cells were isolated from aortic valve leaflets of age and disease-matched AVS patients--one male and one female.
 * GSM8441017_female_AVS_HH6_barcodes.tsv.gz
 * GSM8441017_female_AVS_HH6_features.tsv.gz
@@ -31,6 +40,11 @@ In this project, the data files shown above were refactored to create two gene e
 
 ## The Algorithm
 Before starting on the implementation, I tried to organize what I knew about UMAP into separate steps. I would then focus on creating functions for each part and then combine them in the end.
+
+***NOTE:*** Although not recommended due to inefficiency, you can run this entire UMAP implementation (if data was downloaded in previous steps) by entering the following command in your terminal:
+```
+make run
+```
 
 ### *1. Creating a High-Dimensional (original data) Similarity Matrix:*
 * This would be done by converting high-dimensional Euclidean distances between data points (the cells) into similarities using a Gaussian kernel.
@@ -72,6 +86,12 @@ Before starting on the implementation, I tried to organize what I knew about UMA
 
 ### *6. Visualization:*
 * Additional functions to visualize results were created and can be viewed in the `separate_functions/visualization.py` file.
+
+If you would like to generate the visualization locally, enter the following command in your terminal:
+```
+make visualizations
+```
+Doing so will generate the UMAP projections, the DBSCAN-clustered projections, and the cross-entropy optimization plots for both the Male and Female datasets. To save time, the visualization were generated from the previously saved embedding files found in `final_embeddings/`.
 
 ## Results
 ### *UMAP Projections for Female/Male Datasets:*

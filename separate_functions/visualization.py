@@ -1,4 +1,6 @@
 import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.cluster import DBSCAN
 
 def plot_umap(embedding, labels=None, title="UMAP Projection", cmap='viridis'):
     ''' Creates visualization of 2D UMAP embedding with a scatter plot.
@@ -47,3 +49,37 @@ def plot_optimization(iterations, loss_values, title):
     plt.xlabel('Iteration', fontsize=12)
     plt.ylabel('Cross-Entropy Loss', fontsize=12)
     plt.show()
+
+def main():
+    # Loading the saved embeddings and etc.
+    final_fem_embedding = np.load('../final_embeddings/fem_embedding.npy')
+    final_male_embedding = np.load('../final_embeddings/male_embedding.npy')
+    fem_dbscan = DBSCAN(eps=0.5, min_samples=12)
+    male_dbscan = DBSCAN(eps=0.5, min_samples=12)
+    fem_dbscan_labels = fem_dbscan.fit_predict(final_fem_embedding)
+    male_dbscan_labels = male_dbscan.fit_predict(final_male_embedding)
+
+
+    iterations = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+    fem_loss_values = [
+        94717.808394, 92707.100954, 92042.217898, 91648.584677,
+        91288.015226, 90976.559372, 90714.265300, 90479.552085,
+        90246.052480, 90054.146767
+    ]
+    male_loss_values = [
+        95247.281294, 93035.649956, 92187.536731, 91675.211230,
+        91315.740198, 91017.201041, 90754.578002, 90514.253475,
+        90289.576375, 90096.138191
+    ]
+    
+    # Female UMAP Visuals (projection, DBSCAN projection, and optimization)
+    plot_umap(final_fem_embedding, title="Female Patient Single-Cell UMAP Projection: Aortic Valve Leaflet Cells in AVS")
+    plot_umap(final_fem_embedding, labels=fem_dbscan_labels, title="Female Patient UMAP Projection with DBSCAN Clustering", cmap='Set1')
+    plot_optimization(iterations, fem_loss_values, "Loss over Iterations during UMAP Optimization (female dataset)")
+
+    # Male UMAP Visuals (projection, DBSCAN projection, and optimization)
+    plot_umap(final_male_embedding, title=" Male Patient Single-Cell UMAP Projection: Aortic Valve Leaflet Cells in AVS")
+    plot_umap(final_male_embedding, labels=male_dbscan_labels, title="Male Patient UMAP Projection with DBSCAN Clustering", cmap='Set1')
+    plot_optimization(iterations, male_loss_values, "Loss over Iterations during UMAP Optimization (male dataset)")
+if __name__ == "__main__":
+    main()
