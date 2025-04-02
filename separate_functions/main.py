@@ -56,7 +56,8 @@ def main():
     final_fem_embedding = run_UMAP(fem_fuzzy_simplicial, fem_embedding, learning_rate=1.0, n_iterations=100, alpha=1.0, tol=1e-4)
     final_male_embedding = run_UMAP(male_fuzzy_simplicial, male_embedding, learning_rate=1.0, n_iterations=100, alpha=1.0, tol=1e-4)
 
-    # # OPTIONAL - saving final embeddings as numpy files because running this takes forever and a day
+    # OPTIONAL - saving final embeddings as numpy files because running this takes forever and a day
+    # If you are a crazy person and actually ran this for 37+ hours, then you'll have to switch the final embeddings variables in visualization.py from "np.load('final_embeddings/fem_embedding.npy')" to "np.load('final_embeddings_saved/fem_embedding.npy')"
     np.save('embeddings/fem_embedding_saved.npy', final_fem_embedding)
     np.save('embeddings/male_embedding_saved.npy', final_male_embedding)
 
